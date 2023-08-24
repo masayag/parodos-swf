@@ -31,6 +31,10 @@ backend:
     client: better-sqlite3
     connection: ':memory:'
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
+  reading:
+    allow:
+      - host: localhost:8899
+      - host: github.com
 
 integrations:
   github:
@@ -68,6 +72,13 @@ auth:
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
+
+swf:
+  baseUrl: http://localhost
+  port: 8899
+  workflow-service:
+    path: ../../plugins/swf-backend/workflows
+    container: quay.io/kiegroup/kogito-swf-devmode-nightly:latest
 
 catalog:
   import:

@@ -2,6 +2,7 @@ import { CatalogClient } from '@backstage/catalog-client';
 import { createRouter } from '@backstage/plugin-scaffolder-backend';
 import { Router } from 'express';
 import type { PluginEnvironment } from '../types';
+import { executeServerlessWorkflowAction } from '@parodos/plugin-swf-backend';
 
 export default async function createPlugin(
   env: PluginEnvironment,
@@ -9,6 +10,10 @@ export default async function createPlugin(
   const catalogClient = new CatalogClient({
     discoveryApi: env.discovery,
   });
+
+  const actions = [
+    executeServerlessWorkflowAction({ discovery: env.discovery }),
+  ];
 
   return await createRouter({
     logger: env.logger,
@@ -18,5 +23,6 @@ export default async function createPlugin(
     catalogClient,
     identity: env.identity,
     permissions: env.permissions,
+    actions,
   });
 }

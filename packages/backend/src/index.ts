@@ -28,9 +28,11 @@ import scaffolder from './plugins/scaffolder';
 import proxy from './plugins/proxy';
 import techdocs from './plugins/techdocs';
 import search from './plugins/search';
+import swf from './plugins/swf';
 import { PluginEnvironment } from './types';
 import { ServerPermissionClient } from '@backstage/plugin-permission-node';
 import { DefaultIdentityClient } from '@backstage/plugin-auth-node';
+import { DefaultEventBroker } from '@backstage/plugin-events-backend';
 
 function makeCreateEnv(config: Config) {
   const root = getRootLogger();
@@ -49,6 +51,8 @@ function makeCreateEnv(config: Config) {
     tokenManager,
   });
 
+  const eventBroker = new DefaultEventBroker(root.child({ type: 'plugin' }));
+
   root.info(`Created UrlReader ${reader}`);
 
   return (plugin: string): PluginEnvironment => {
@@ -62,6 +66,7 @@ function makeCreateEnv(config: Config) {
       cache,
       config,
       reader,
+      eventBroker,
       discovery,
       tokenManager,
       scheduler,
@@ -85,6 +90,7 @@ async function main() {
   const techdocsEnv = useHotMemoize(module, () => createEnv('techdocs'));
   const searchEnv = useHotMemoize(module, () => createEnv('search'));
   const appEnv = useHotMemoize(module, () => createEnv('app'));
+  const swfEnv = useHotMemoize(module, () => createEnv('swf'));
 
   const apiRouter = Router();
   apiRouter.use('/catalog', await catalog(catalogEnv));
@@ -93,6 +99,7 @@ async function main() {
   apiRouter.use('/techdocs', await techdocs(techdocsEnv));
   apiRouter.use('/proxy', await proxy(proxyEnv));
   apiRouter.use('/search', await search(searchEnv));
+  apiRouter.use('/swf', await swf(swfEnv));
 
   // Add backends ABOVE this line; this 404 handler is the catch-all fallback
   apiRouter.use(notFoundHandler());
