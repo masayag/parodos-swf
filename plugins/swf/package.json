@@ -1,0 +1,78 @@
+{
+  "name": "@parodos/plugin-swf",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "license": "Apache-2.0",
+  "private": true,
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.esm.js",
+    "types": "dist/index.d.ts"
+  },
+  "backstage": {
+    "role": "frontend-plugin"
+  },
+  "scripts": {
+    "start": "backstage-cli package start",
+    "build": "backstage-cli package build",
+    "lint": "backstage-cli package lint",
+    "test": "backstage-cli package test",
+    "clean": "backstage-cli package clean",
+    "prepack": "backstage-cli package prepack",
+    "postpack": "backstage-cli package postpack"
+  },
+  "dependencies": {
+    "@backstage/backend-plugin-api": "^0.6.2",
+    "@backstage/core-components": "^0.13.4",
+    "@backstage/core-plugin-api": "^1.5.3",
+    "@backstage/errors": "^1.2.1",
+    "@backstage/plugin-catalog-import": "^0.9.13",
+    "@parodos/plugin-swf-common": "^0.0.0",
+    "@backstage/theme": "^0.4.1",
+    "@kie-tools-core/editor": "^0.31.0",
+    "@kie-tools-core/envelope-bus": "^0.31.0",
+    "@kie-tools-core/notifications": "^0.31.0",
+    "@kie-tools-core/react-hooks": "^0.31.0",
+    "@kie-tools-core/workspace": "^0.31.0",
+    "@kie-tools/serverless-workflow-combined-editor": "^0.31.0",
+    "@kie-tools/serverless-workflow-diagram-editor-envelope": "^0.31.0",
+    "@kie-tools/serverless-workflow-language-service": "^0.31.0",
+    "@kie-tools/serverless-workflow-service-catalog": "^0.31.0",
+    "@kie-tools/serverless-workflow-text-editor": "^0.31.0",
+    "@material-table/core": "^3.1.0",
+    "@material-ui/core": "^4.9.13",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@severlessworkflow/sdk-typescript": "^3.0.3",
+    "json-schema": "^0.4.0",
+    "moment": "^2.29.4",
+    "openapi-types": "^12.1.3",
+    "react-hook-form": "^7.45.1",
+    "react-json-view": "^1.21.3",
+    "react-moment": "^1.1.3",
+    "react-use": "^17.2.4",
+    "vscode-languageserver-types": "^3.16.0"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1 || ^17.0.0",
+    "react-dom": "^16.13.1 || ^17.0.0",
+    "react-router-dom": "6.0.0-beta.0 || ^6.3.0"
+  },
+  "devDependencies": {
+    "@backstage/cli": "^0.22.12",
+    "@backstage/core-app-api": "^1.9.1",
+    "@backstage/dev-utils": "^1.0.20",
+    "@backstage/test-utils": "^1.4.2",
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "^12.1.3",
+    "@testing-library/user-event": "^14.0.0",
+    "@types/json-schema": "^7.0.12",
+    "@types/node": "*",
+    "cross-fetch": "^3.1.5",
+    "msw": "^1.0.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

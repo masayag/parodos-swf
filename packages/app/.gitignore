@@ -1,0 +1,5 @@
+public/fonts
+public/swf
+public/editor.worker.js
+public/json.worker.js
+public/vendors-node_modules_monaco-editor_esm_vs_language_json_jsonMode_js.bundle.js

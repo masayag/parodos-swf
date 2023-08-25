@@ -1,0 +1,52 @@
+{
+  "name": "@parodos/plugin-swf-common",
+  "description": "Common functionalities for SWF, to be shared between various swf-enabled plugins",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.cjs.js",
+    "types": "dist/index.d.ts"
+  },
+  "backstage": {
+    "role": "common-library"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parodos-dev/parodos-swf",
+    "directory": "plugins/swf-common"
+  },
+  "keywords": [
+    "backstage",
+    "swf",
+    "parodos",
+    "serverless",
+    "workflow"
+  ],
+  "license": "Apache-2.0",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "backstage-cli package build",
+    "lint": "backstage-cli package lint",
+    "test": "backstage-cli package test",
+    "prepack": "backstage-cli package prepack",
+    "postpack": "backstage-cli package postpack",
+    "clean": "backstage-cli package clean"
+  },
+  "dependencies": {
+    "@backstage/plugin-permission-common": "^0.7.7",
+    "@backstage/types": "^1.1.0",
+    "json-schema": "^0.4.0"
+  },
+  "devDependencies": {
+    "@backstage/cli": "^0.22.12"
+  },
+  "jest": {
+    "roots": [
+      ".."
+    ]
+  }
+}

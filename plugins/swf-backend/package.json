@@ -9,6 +9,18 @@
     "main": "dist/index.cjs.js",
     "types": "dist/index.d.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parodos-dev/parodos-swf",
+    "directory": "plugins/swf-backend"
+  },
+  "keywords": [
+    "backstage",
+    "parodos",
+    "swf",
+    "serverless",
+    "workflow"
+  ],
   "backstage": {
     "role": "backend-plugin"
   },
@@ -36,6 +48,7 @@
     "@backstage/plugin-scaffolder-node": "^0.2.2",
     "@octokit/rest": "^19.0.3",
     "@severlessworkflow/sdk-typescript": "^3.0.3",
+    "@parodos/plugin-swf-common": "^0.0.0",
     "@types/express": "*",
     "@types/node-fetch": "^2.6.4",
     "express": "^4.17.1",
