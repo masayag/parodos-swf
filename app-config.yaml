@@ -75,7 +75,7 @@ scaffolder:
 
 swf:
   baseUrl: http://localhost
-  port: 8899
+  port: 8080
 
 catalog:
   import:
