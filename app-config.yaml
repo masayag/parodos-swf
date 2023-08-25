@@ -33,7 +33,7 @@ backend:
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
   reading:
     allow:
-      - host: localhost:8899
+      - host: sonataflow:8080
       - host: github.com
 
 integrations:
@@ -74,7 +74,7 @@ scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 swf:
-  baseUrl: http://localhost
+  baseUrl: http://sonataflow
   port: 8080
 
 catalog:
