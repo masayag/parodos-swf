@@ -6,7 +6,7 @@
     "node": "16 || 18"
   },
   "scripts": {
-    "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
+    "dev": "concurrently \"docker compose up\" \"yarn start\" \"yarn start-backend\"",
     "start": "yarn workspace app start",
     "start-backend": "yarn workspace backend start",
     "build:backend": "yarn workspace backend build",
@@ -50,5 +50,9 @@
     "*.{json,md}": [
       "prettier --write"
     ]
+  },
+  "volta": {
+    "node": "18.17.0",
+    "yarn": "1.22.17"
   }
 }

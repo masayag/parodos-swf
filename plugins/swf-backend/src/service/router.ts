@@ -8,11 +8,9 @@ import {
   SwfListResult,
   topic,
 } from '@parodos/plugin-swf-common';
-import { exec, ExecException } from 'child_process';
 import { EventBroker } from '@backstage/plugin-events-node';
 import { Config } from '@backstage/config';
 import { DiscoveryApi } from '@backstage/core-plugin-api';
-import { resolve } from 'path';
 import { WorkflowService } from './WorkflowService';
 import { OpenApiService } from './OpenApiService';
 import { DataInputSchemaService } from './DataInputSchemaService';
@@ -47,15 +45,6 @@ export async function createRouter(
   logger.info(
     `Using kogito Serverless Workflow Url of: ${kogitoBaseUrl}:${kogitoPort}`,
   );
-  const kogitoResourcesPath =
-    config.getOptionalString('swf.workflow-service.path') ??
-    '../../plugins/swf-backend/workflows';
-  const kogitoServiceContainer =
-    config.getOptionalString('swf.workflow-service.container') ??
-    'quay.io/kiegroup/kogito-swf-devmode:1.42';
-  const kogitoPersistencePath =
-    config.getOptionalString('swf.workflow-service.persistence.path') ??
-    '/home/kogito/persistence';
 
   const githubToken = process.env.BACKSTAGE_GITHUB_TOKEN;
   const openApiService = new OpenApiService(logger, discovery);
@@ -81,9 +70,6 @@ export async function createRouter(
   await setupKogitoService(
     kogitoBaseUrl,
     kogitoPort,
-    kogitoResourcesPath,
-    kogitoServiceContainer,
-    kogitoPersistencePath,
     logger,
   );
 
@@ -283,32 +269,8 @@ function setupExternalRoutes(router: express.Router, discovery: DiscoveryApi) {
 async function setupKogitoService(
   kogitoBaseUrl: string,
   kogitoPort: number,
-  kogitoResourcesPath: string,
-  kogitoServiceContainer: string,
-  kogitoPersistencePath: string,
   logger: Logger,
 ) {
-  // TODO Move docker outside
-  const kogitoResourcesAbsPath = resolve(`${kogitoResourcesPath}`);
-  const launcher = `docker run --add-host host.docker.internal:host-gateway --rm -p ${kogitoPort}:8080 -v ${kogitoResourcesAbsPath}:/home/kogito/serverless-workflow-project/src/main/resources -e KOGITO.CODEGEN.PROCESS.FAILONERROR=false -e QUARKUS_EMBEDDED_POSTGRESQL_DATA_DIR=${kogitoPersistencePath} ${kogitoServiceContainer}`;
-  console.log(`Starting Kogito Serverless Workflow Service with: ${launcher}`);
-  exec(
-    launcher,
-    (error: ExecException | null, stdout: string, stderr: string) => {
-      if (error) {
-        console.error(`error: ${error.message}`);
-        return;
-      }
-
-      if (stderr) {
-        console.error(`stderr: ${stderr}`);
-        return;
-      }
-
-      console.log(`stdout:\n${stdout}`);
-    },
-  );
-
   // We need to ensure the service is running!
   try {
     await executeWithRetry(() =>

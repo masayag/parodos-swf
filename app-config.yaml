@@ -76,9 +76,6 @@ scaffolder:
 swf:
   baseUrl: http://localhost
   port: 8899
-  workflow-service:
-    path: ../../plugins/swf-backend/workflows
-    container: quay.io/kiegroup/kogito-swf-devmode-nightly:latest
 
 catalog:
   import:
