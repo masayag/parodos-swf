@@ -15,8 +15,5 @@
       "description": "Sets the commit message on the repository. The default value is 'initial commit'"
     }
   },
-  "required": [
-    "defaultBranch",
-    "gitCommitMessage"
-  ]
+  "required": ["defaultBranch", "gitCommitMessage"]
 }

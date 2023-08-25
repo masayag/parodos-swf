@@ -85,9 +85,7 @@
             "refName": "runActionTemplateFetch",
             "arguments": {
               "url": "https://github.com/janus-idp/software-templates/blob/main/scaffolder-skeletons/github-actions-skeleton/",
-              "copyWithoutTemplating": [
-                "\".github/workflows/\""
-              ],
+              "copyWithoutTemplating": ["\".github/workflows/\""],
               "values": {
                 "githubOrg": ".githubOrg",
                 "repoName": ".repoName",
@@ -125,9 +123,7 @@
             "refName": "runActionTemplateFetch",
             "arguments": {
               "url": "https://github.com/janus-idp/software-templates/tree/main/scaffolder-skeletons/tekton-skeleton",
-              "copyWithoutTemplating": [
-                "\".tekton/workflows/\""
-              ],
+              "copyWithoutTemplating": ["\".tekton/workflows/\""],
               "values": {
                 "githubOrg": ".githubOrg",
                 "repoName": ".repoName",
@@ -200,9 +196,7 @@
           "functionRef": {
             "refName": "runActionPublishGithub",
             "arguments": {
-              "allowedHosts": [
-                "\"github.com\""
-              ],
+              "allowedHosts": ["\"github.com\""],
               "description": "Workflow Action",
               "repoUrl": "\"github.com?owner=\" + .githubOrg + \"&repo=\" + .repoName",
               "defaultBranch": ".defaultBranch",

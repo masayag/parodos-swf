@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { InfoCard, Table } from '@backstage/core-components';

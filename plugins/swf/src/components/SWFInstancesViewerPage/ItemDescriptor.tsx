@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React from 'react';
 import { Badge, Tooltip } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';

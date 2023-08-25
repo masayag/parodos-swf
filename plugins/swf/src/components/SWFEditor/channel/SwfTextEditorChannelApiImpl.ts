@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import {
   EditorContent,
   EditorTheme,
@@ -50,7 +35,10 @@ export class SwfTextEditorChannelApiImpl implements SwfTextEditorChannelApi {
       swfServiceCatalogApiImpl?: SwfServiceCatalogChannelApi;
     },
   ) {}
-  kogitoSwfServiceCatalog_importEventFromCompletionItem(_args: { containingService: SwfServiceCatalogService; documentUri: string; }): void {
+  kogitoSwfServiceCatalog_importEventFromCompletionItem(_args: {
+    containingService: SwfServiceCatalogService;
+    documentUri: string;
+  }): void {
     throw new Error('Method not implemented.');
   }
 

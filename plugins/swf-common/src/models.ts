@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export enum ProcessInstanceState {
   Active = 'ACTIVE',
   Completed = 'COMPLETED',

@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useCallback, useMemo } from 'react';
 
 import { InfoCard } from '@backstage/core-components';

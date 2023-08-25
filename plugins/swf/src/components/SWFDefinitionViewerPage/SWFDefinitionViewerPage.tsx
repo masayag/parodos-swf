@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useEffect, useState } from 'react';
 import { useRouteRefParams } from '@backstage/core-plugin-api';
 import { definitionsRouteRef } from '../../routes';

@@ -67,11 +67,7 @@ export async function createRouter(
   );
   setupExternalRoutes(router, discovery);
 
-  await setupKogitoService(
-    kogitoBaseUrl,
-    kogitoPort,
-    logger,
-  );
+  await setupKogitoService(kogitoBaseUrl, kogitoPort, logger);
 
   await eventBroker.publish({
     topic: topic,

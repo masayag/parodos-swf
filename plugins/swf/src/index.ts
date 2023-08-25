@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export { swfPlugin, SWFPage, SWFInstancesViewerPage } from './plugin';
 export { SwfClient } from './api/SwfClient';
 export { SWFDialog } from './components/SWFDialog';

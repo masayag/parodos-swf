@@ -93,9 +93,7 @@
             "arguments": {
               "url": "https://github.com/janus-idp/software-templates/blob/main/scaffolder-skeletons/github-actions-skeleton/",
               "targetPath": "source/",
-              "copyWithoutTemplating": [
-                "\".github/workflows/\""
-              ],
+              "copyWithoutTemplating": ["\".github/workflows/\""],
               "values": {
                 "githubOrg": ".githubOrg",
                 "repoName": ".repoName",
@@ -184,9 +182,7 @@
             "refName": "runActionPublishGithub",
             "arguments": {
               "sourcePath": "source/",
-              "allowedHosts": [
-                "\"github.com\""
-              ],
+              "allowedHosts": ["\"github.com\""],
               "description": "Workflow Action",
               "repoUrl": "\"github.com?owner=\" + .githubOrg + \"&repo=\" + .repoName",
               "defaultBranch": ".defaultBranch",
@@ -265,9 +261,7 @@
           "functionRef": {
             "refName": "fs:delete",
             "arguments": {
-              "files": [
-                "source/"
-              ]
+              "files": ["source/"]
             }
           }
         }
@@ -283,9 +277,7 @@
           "functionRef": {
             "refName": "fs:delete",
             "arguments": {
-              "files": [
-                "source/"
-              ]
+              "files": ["source/"]
             }
           }
         }
@@ -301,9 +293,7 @@
           "functionRef": {
             "refName": "fs:delete",
             "arguments": {
-              "files": [
-                "source/"
-              ]
+              "files": ["source/"]
             }
           }
         }

@@ -10,7 +10,5 @@
       "type": "string"
     }
   },
-  "required": [
-    "repoContentsUrl"
-  ]
+  "required": ["repoContentsUrl"]
 }

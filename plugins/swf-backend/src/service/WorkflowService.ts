@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { resolvePackagePath } from '@backstage/backend-common';
 import fs from 'fs-extra';
 import { OpenApiService } from './OpenApiService';

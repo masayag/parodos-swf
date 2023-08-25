@@ -25,10 +25,5 @@
       "type": "string"
     }
   },
-  "required": [
-    "githubOrg",
-    "repoName",
-    "owner",
-    "description"
-  ]
+  "required": ["githubOrg", "repoName", "owner", "description"]
 }
