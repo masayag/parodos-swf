@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "backstage-cli package start",
+    "prebuild": "yarn build:swf",
     "build": "backstage-cli package build",
     "build:swf": "rm -rf dist/ && webpack --config swf-webpack.config.js",
     "clean": "backstage-cli package clean",
